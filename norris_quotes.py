@@ -62,9 +62,9 @@ def main(wrapper):
 
     # Create the event loop
     while True:
-        c = quote_window.getch()
+        c = chr(quote_window.getch()).lower()
 
-        if c == ord('r') or c == ord('R'):  # I want to change this to use .lower
+        if c == 'r':
             quote_text_window.clear()
             quote_text_window.addstr("Getting quote...", curses.color_pair(3))
 
@@ -72,7 +72,7 @@ def main(wrapper):
             quote_text_window.clear()
             quote_text_window.addstr(get_new_joke())
 
-        elif c == ord('q') or c == ord('Q'):
+        elif c == 'q':
             break
 
         # Refresh the windows from the bottom up
